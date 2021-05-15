@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         # using older ubuntu to mitigate "/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.29' not found" error
-        os: [macos-latest, windows-latest, ubuntu-16.04]
+        os: [windows-latest]
     steps:
       - uses: actions/checkout@v2
         with:
@@ -43,6 +43,6 @@ jobs:
         run: cat package.json
       - name: Build release
         run: |
-          npx prebuild -r electron -t 10.0.0 -t 11.0.0 -t 12.0.0 --include-regex 'better_sqlite3.node$' -u ${{ secrets.GITHUB_TOKEN }}
-          npx prebuild -r electron -t 10.0.0 -t 11.0.0 -t 12.0.0 --include-regex 'better_sqlite3.node$' --arch ia32 -u ${{ secrets.GITHUB_TOKEN }}
+          npx prebuild -r electron -t 11.0.0 -t 12.0.0 --include-regex 'better_sqlite3.node$' -u ${{ secrets.GITHUB_TOKEN }}
+          npx prebuild -r electron -t 11.0.0 -t 12.0.0 --include-regex 'better_sqlite3.node$' --arch ia32 -u ${{ secrets.GITHUB_TOKEN }}
 
