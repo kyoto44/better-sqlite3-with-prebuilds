@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         # using older ubuntu to mitigate "/lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.29' not found" error
-        os: [ubuntu-18.04, windows-latest]
+        os: [windows-latest]
     steps:
       - uses: actions/checkout@v2
         with:
